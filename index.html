@@ -396,46 +396,7 @@ body{font-kerning:normal;font-variant-ligatures:normal;letter-spacing:0}
   const toggle=document.getElementById('menu-btn'),nav=document.getElementById('nav');
   toggle.addEventListener('click',()=>{let opened=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(opened));toggle.setAttribute('aria-label',opened?'Закрыть меню':'Открыть меню');toggle.textContent=opened?'×':'☰';});
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));
-  // Dates are calculated in Moscow time (Ivanovo, UTC+3) rather than visitors' time zones.
-  const moscow=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-  const date=moscow;
-  const windows=[
-    {start:'2026-10-31',end:'2026-11-06',label:'Продажа билетов открыта',price:[6500,8500,12000,16000],next:[7000,9000,13000,17000],nextLabel:'С 13 ноября'},
-    {start:'2026-11-13',end:'2026-11-20',label:'Второе окно продаж · 13–20 ноября',price:[7000,9000,13000,17000],next:[7500,9500,14000,18000],nextLabel:'С 27 ноября'},
-    {start:'2026-11-27',end:'2026-12-04',label:'Финальное окно продаж · 27 ноября — 4 декабря',price:[7500,9500,14000,18000],next:null,nextLabel:null}
-  ];
-  const keys=['standard','vip','pair','pairvip'];
-  const f=n=>n.toLocaleString('ru-RU').replace(/\u00a0/g,' ');
-  let idx=windows.findIndex(w=>date>=w.start && date<=w.end);
-  const isPresale=date<windows[0].start;
-  if(isPresale) idx=0;
-  const status=document.getElementById('ticket-status'),desc=document.getElementById('ticket-desc');
-  if(idx>=0){
-    const w=windows[idx]; status.textContent=w.label;
-    desc.textContent=idx===0?'Самая выгодная стоимость участия. С 13 ноября стоимость билетов повысится':idx===1?'Следующее повышение стоимости билетов — с 27 ноября':'Последняя объявленная стоимость билетов';
-    keys.forEach((key,i)=>{
-      const c=document.querySelector(`[data-ticket="${key}"]`);
-      c.querySelector('.price-number').textContent=f(w.price[i]);
-      const next=c.querySelector('.ticket-next');
-      if(w.next){next.innerHTML=w.nextLabel+' — <strong>'+f(w.next[i])+' ₽</strong>';}
-      else next.hidden=true;
-      const button=c.querySelector('.pay-ticket');
-      if(idx>0||isPresale){button.removeAttribute('href');button.setAttribute('aria-disabled','true');button.textContent=isPresale?'Продажи с 31 октября':'Ссылка на оплату появится позже';}
-    });
-  } else {
-    const future=windows.find(w=>date<w.start);
-    if(future){
-      const number=windows.indexOf(future); status.textContent='Следующее окно продаж — '+(number===1?'13 ноября':'27 ноября');
-      desc.textContent='Продажи между объявленными окнами приостановлены';
-      keys.forEach((key,i)=>{const c=document.querySelector(`[data-ticket="${key}"]`);c.querySelector('.price-number').textContent=f(future.price[i]);const nxt=c.querySelector('.ticket-next');nxt.hidden=true;});
-    }else{status.textContent='Объявленные окна продаж завершены';desc.textContent='Информацию о наличии билетов уточняйте у организаторов';}
-    document.querySelectorAll('.pay-ticket').forEach(a=>{a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.textContent='Продажи сейчас закрыты';});
-  }
-  if(date>'2026-11-10'){
-    document.querySelector('[data-ticket="vip"] .ticket-extra').textContent='Мастер-класс и бьюти-бар для VIP-гостей';
-    document.querySelector('[data-ticket="pairvip"] .ticket-extra').textContent='VIP-программа для двоих';
-    document.querySelectorAll('.partner-link,.mag-link').forEach(a=>{a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.textContent='Приём оплат завершён';});
-  }
+
 })();
 </script>
 </body>
