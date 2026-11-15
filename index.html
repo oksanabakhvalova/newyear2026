@@ -504,31 +504,32 @@ body{font-kerning:normal;font-variant-ligatures:normal;letter-spacing:0}
 @media(max-width:580px){.guest-offer--kiwi .kiwi-copy p{font-size:15px;line-height:1.68}.guest-offer--kiwi .kiwi-tagline{margin-bottom:22px}}
 
 
-/* Компактная галерея «Бусы Киви»: не увеличивать изображения выше исходного размера */
-.guest-offer--kiwi{padding-top:60px;padding-bottom:64px}
-.guest-offer--kiwi .kiwi-inner{max-width:1080px}
-.kiwi-offer-layout{display:grid;grid-template-columns:minmax(0,61fr) minmax(0,39fr);align-items:center;gap:clamp(25px,3vw,44px)}
-.guest-offer--kiwi .heading{font-size:clamp(38px,3.6vw,51px);margin-bottom:6px}
-.guest-offer--kiwi .kiwi-tagline{font-size:clamp(19px,2vw,25px);margin:0 0 19px}
-.guest-offer--kiwi .kiwi-copy{max-width:615px}
-.guest-offer--kiwi .kiwi-copy p{font-size:15px;line-height:1.58;margin:0 0 12px}
-.guest-offer--kiwi .kiwi-gallery{width:100%;max-width:350px;min-width:0;justify-self:center;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.guest-offer--kiwi .kiwi-gallery figure{margin:0;aspect-ratio:3/4;overflow:hidden;border-radius:4px;background:#e5dcd4}
-.guest-offer--kiwi .kiwi-gallery img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;image-rendering:auto}
-.guest-offer--kiwi .kiwi-gallery figure:first-child img{object-fit:cover}
+/* «Бусы Киви» — крупная квадратная галерея без рамок */
+.guest-offer--kiwi{padding-top:68px;padding-bottom:70px}
+.guest-offer--kiwi .kiwi-inner{max-width:1140px}
+.kiwi-offer-layout{display:grid;grid-template-columns:minmax(0,54fr) minmax(0,46fr);align-items:center;gap:clamp(30px,3.8vw,54px)}
+.guest-offer--kiwi .heading{font-size:clamp(40px,4vw,56px);margin-bottom:8px}
+.guest-offer--kiwi .kiwi-tagline{font-size:clamp(21px,2.1vw,28px);margin:0 0 22px}
+.guest-offer--kiwi .kiwi-copy{max-width:630px}
+.guest-offer--kiwi .kiwi-copy p{font-size:16px;line-height:1.62;margin:0 0 14px}
+.guest-offer--kiwi .kiwi-gallery{width:100%;max-width:480px;min-width:0;justify-self:end;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;overflow:visible;padding:0}
+.guest-offer--kiwi .kiwi-gallery figure{display:block;margin:0;min-width:0;aspect-ratio:1/1;overflow:hidden;border:0;border-radius:0;background:transparent;box-shadow:none}
+.guest-offer--kiwi .kiwi-gallery img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;border:0;border-radius:0}
+.guest-offer--kiwi .kiwi-gallery figure:first-child img{object-fit:cover;object-position:center bottom}
+.guest-offer--kiwi .kiwi-gallery figure:nth-child(2) img{object-position:center 46%}
 @media(max-width:860px){
- .guest-offer--kiwi{padding-top:48px;padding-bottom:50px}
- .kiwi-offer-layout{grid-template-columns:1fr;gap:20px}
- .guest-offer--kiwi .kiwi-gallery{display:flex;gap:8px;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:thin;justify-self:stretch;padding-bottom:9px}
- .guest-offer--kiwi .kiwi-gallery figure{flex:0 0 150px;aspect-ratio:3/4;scroll-snap-align:start}
- .guest-offer--kiwi .kiwi-gallery img{width:100%;height:100%;object-fit:contain}
+ .guest-offer--kiwi{padding-top:52px;padding-bottom:54px}
+ .kiwi-offer-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+ .guest-offer--kiwi .kiwi-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px;justify-self:center;gap:10px;overflow:visible;scroll-snap-type:none;padding:0}
+ .guest-offer--kiwi .kiwi-gallery figure{aspect-ratio:1/1;flex:none}
+ .guest-offer--kiwi .kiwi-gallery img{object-fit:cover}
 }
 @media(max-width:520px){
- .guest-offer--kiwi{padding-top:42px;padding-bottom:44px}
- .guest-offer--kiwi .heading{font-size:37px}
- .guest-offer--kiwi .kiwi-tagline{font-size:20px;margin-bottom:15px}
- .guest-offer--kiwi .kiwi-copy p{font-size:14px;line-height:1.55;margin-bottom:10px}
- .guest-offer--kiwi .kiwi-gallery figure{flex-basis:138px}
+ .guest-offer--kiwi{padding-top:44px;padding-bottom:46px}
+ .guest-offer--kiwi .heading{font-size:clamp(35px,9vw,42px)}
+ .guest-offer--kiwi .kiwi-tagline{font-size:20px;margin-bottom:16px}
+ .guest-offer--kiwi .kiwi-copy p{font-size:15px;line-height:1.58;margin-bottom:12px}
+ .guest-offer--kiwi .kiwi-gallery{gap:8px}
 }
 
 </style>
